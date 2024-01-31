@@ -5,7 +5,7 @@ This is a landing page of my website built with Next.js and Tailwind CSS. It sho
 ## Instalation
 
 1. Clone the repositori `git clone https://github.com/dimasfahrur/payna-app.git`
-2. Navigate to the project directory: `cd payna-app`
+2. Navigate to the project directory: `cd portfolio-website`
 3. Install the dependencies: `npm install`
 
 ## Usage
