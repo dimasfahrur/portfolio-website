@@ -1,40 +1,43 @@
-'use client';
-import React, { useState } from 'react';
-import ProjectCard from './ProjectCard';
-import ProjectTag from './ProjectTag';
+"use client";
+import React, { useState, useRef } from "react";
+import ProjectCard from "./ProjectCard";
+import ProjectTag from "./ProjectTag";
+import { motion, useInView } from "framer-motion";
 
 const projectData = [
 	{
 		id: 1,
-		title: 'React Portfolio Website',
-		description: 'Payna Website',
-		image: '/images/projects/payna-app.png',
-		tag: ['ALL', 'Web'],
-		gitUrl: '/',
-		previewUrl: '/',
+		title: "Payna Website",
+		description: "Landing page use React, Next.Js, and TailwindCSS",
+		image: "/images/projects/payna-app.png",
+		tag: ["ALL", "Web"],
+		gitUrl: "https://github.com/dimasfahrur/payna-app",
+		previewUrl: "https://payna-app.vercel.app/",
 	},
 	{
 		id: 2,
-		title: 'React Portfolio Website',
-		description: 'Payna Website',
-		image: '/images/projects/payna-app.png',
-		tag: ['ALL', 'Web'],
-		gitUrl: '/',
-		previewUrl: '/',
+		title: "Semina Website (Back-End)",
+		description: "This is an API use MongoDB, Express Js, and Node JS",
+		image: "/images/projects/semina-web.png",
+		tag: ["ALL", "Web"],
+		gitUrl: "https://github.com/dimasfahrur/server-semina-bootcamp-2",
+		previewUrl: "/",
 	},
 	{
 		id: 3,
-		title: 'React Portfolio Website',
-		description: 'Payna Website',
-		image: '/images/projects/payna-app.png',
-		tag: ['ALL', 'UI/UX'],
-		gitUrl: '/',
-		previewUrl: '/',
+		title: "Travelo Website",
+		description: "This landing website use React, Next, and TailwindCSS",
+		image: "/images/projects/travelo-app.png",
+		tag: ["ALL", "Web"],
+		gitUrl: "https://github.com/dimasfahrur/travelo-app",
+		previewUrl: "https://travelo-app-three.vercel.app/",
 	},
 ];
 
 const ProjectSection = () => {
-	const [tag, setTag] = useState('ALL');
+	const [tag, setTag] = useState("ALL");
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true });
 
 	const handleTagChange = (newTag) => {
 		setTag(newTag);
@@ -44,45 +47,58 @@ const ProjectSection = () => {
 		project.tag.includes(tag)
 	);
 
+	const cardVariants = {
+		initial: { y: 50, opacity: 0 },
+		animate: { y: 0, opacity: 1 },
+	};
+
 	return (
-		<>
+		<section ref={ref}>
 			<h2
-				className='text-center text-4xl font-bold mt-4 mb-8 md:mb-12'
-				id='projects'
+				className="text-center text-4xl font-bold mt-4 mb-8 md:mb-12"
+				id="projects"
 			>
 				My Project
 			</h2>
-			<div className='flex flex-row justify-center items-center gap-2 py-6'>
+			<div className="flex flex-row justify-center items-center gap-2 py-6">
 				<ProjectTag
 					onClick={handleTagChange}
-					name='ALL'
-					isSelected={tag === 'ALL'}
+					name="ALL"
+					isSelected={tag === "ALL"}
 				/>
 				<ProjectTag
 					onClick={handleTagChange}
-					name='Web'
-					isSelected={tag === 'Web'}
+					name="Web"
+					isSelected={tag === "Web"}
 				/>
 				<ProjectTag
 					onClick={handleTagChange}
-					name='UI/UX'
-					isSelected={tag === 'UI/UX'}
+					name="UI/UX"
+					isSelected={tag === "UI/UX"}
 				/>
 			</div>
-			<div className='grid md:grid-cols-3 gap-8 md:gap-12'>
-				{filteredProjects.map((project) => (
-					<ProjectCard
-						key={project.id}
-						title={project.title}
-						description={project.description}
-						imgUrl={project.image}
-						tags={project}
-						gitUrl={project.gitUrl}
-						previewUrl={project.previewUrl}
-					/>
+			<ul className="grid md:grid-cols-3 gap-8 md:gap-12">
+				{filteredProjects.map((project, index) => (
+					<motion.li
+						key={index}
+						variants={cardVariants}
+						initial="initial"
+						animate={isInView ? "animate" : "initial"}
+						transition={{ duration: 0.3, delay: index * 0.4 }}
+					>
+						<ProjectCard
+							key={project.id}
+							title={project.title}
+							description={project.description}
+							imgUrl={project.image}
+							tags={project}
+							gitUrl={project.gitUrl}
+							previewUrl={project.previewUrl}
+						/>
+					</motion.li>
 				))}
-			</div>
-		</>
+			</ul>
+		</section>
 	);
 };
 
