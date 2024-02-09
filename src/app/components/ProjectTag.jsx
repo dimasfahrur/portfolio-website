@@ -3,7 +3,7 @@ import React from "react";
 const ProjectTag = ({ name, onClick, isSelected }) => {
 	const buttonStyle = isSelected
 		? "text-black bg-white"
-		: "text-[#ADB7BE] border-slate-300 hover:border-black";
+		: "text-[#ADB7BE] border-slate-300 hover:border-black hover:text-black";
 
 	return (
 		<button
