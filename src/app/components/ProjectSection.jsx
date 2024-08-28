@@ -32,6 +32,17 @@ const projectData = [
 		gitUrl: "https://github.com/dimasfahrur/travelo-app",
 		previewUrl: "https://travelo-app-three.vercel.app/",
 	},
+	{
+		id: 4,
+		title: "Reading App",
+		description:
+			"Application design for reading app, this app can empower people to access books from anywhere",
+		image: "/images/projects/reading-app.png",
+		tag: ["ALL", "UI/UX"],
+		gitUrl: "/",
+		previewUrl:
+			"https://www.figma.com/design/3tHOeXDPYI2Y0uKfuZDmCX/Reading-Apps?node-id=0-1&t=YH96UVJnhTJTych6-1",
+	},
 ];
 
 const ProjectSection = () => {
