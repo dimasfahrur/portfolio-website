@@ -44,7 +44,7 @@ const HeroSection = () => {
 							Hire Me
 						</button>
 					</Link>
-					<Link href="https://bit.ly/CV_DIMASFR">
+					<Link href="https://unej.id/cvdimas">
 						<button className="px-6 py-2 w-full sm:w-fit rounded-full bg-transparent hover:bg-secondary-400 hover:text-white hover:border-secondary-400 border-4 border-cyan-400 mt-3">
 							Download CV
 						</button>
