@@ -27,12 +27,24 @@ const TAB_DATA = [
 		),
 	},
 	{
-		title: "Certifications",
-		id: "certifications",
+		title: "Work Experience",
+		id: "work-exp",
 		content: (
 			<ul className="list-disc pl-2">
-				<li>AWS Cloud Pratitioner</li>
-				<li>Belajar Dasar Front-End Developer</li>
+				<h3 className="font-semibold">
+					Dinas Perindustrian dan Perdagangan (Feb-Jun 2023)
+				</h3>
+				<ul className="pl-4 list-disc">
+					<li>
+						Managing price list of staple foods in 28 markets in Jember district
+						to be reported to BPS
+					</li>
+					<li>
+						Manage official goverment documents according to the year of theri
+						creation and create official goverment letters
+					</li>
+					<li>Documented the Pasar Murah event held in 22 districts</li>
+				</ul>
 			</ul>
 		),
 	},
@@ -80,10 +92,10 @@ const AboutSection = () => {
 							Education
 						</TabButton>
 						<TabButton
-							selectTab={() => handleTabChange("certifications")}
-							active={tab === "certifications"}
+							selectTab={() => handleTabChange("work-exp")}
+							active={tab === "work-exp"}
 						>
-							Certifications
+							Work Experience
 						</TabButton>
 					</div>
 					<div className="mt-8">
